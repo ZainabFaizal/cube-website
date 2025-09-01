@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User-Centric Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="min-h-screen bg-gray-900 flex items-center flex flex-col p-4">
+    
+    <!-- Header with Logo -->
+    <header class="w-full max-w-6xl mx-auto mb-8">
+        <div class="flex items-center p-4">
+            <svg class="w-8 h-8" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient x1="0%" y1="32.443%" x2="104.18%" y2="50%" id="hlogo-a">
+                        <stop stop-color="#FFF" stop-opacity=".299" offset="0%"></stop>
+                        <stop stop-color="#7587E4" stop-opacity="0" offset="100%"></stop>
+                    </linearGradient>
+                    <linearGradient x1="18.591%" y1="0%" x2="100%" y2="100%" id="hlogo-b">
+                        <stop stop-color="#818CF8" offset="0%"></stop>
+                        <stop stop-color="#C7D2FE" offset="100%"></stop>
+                    </linearGradient>
+                </defs>
+                <g fill="none" fill-rule="evenodd">
+                    <path fill="#3730A3" d="M16 18.5V32l15.999-9.25V9.25z"></path>
+                    <path fill="#4F46E5" d="m0 23 16 9V18.501L0 9.251z"></path>
+                    <path fill-opacity=".64" fill="url(#hlogo-a)" d="M16 13 0 23l16 9 16-9z"></path>
+                    <path fill="url(#hlogo-b)" d="M16 0 0 9.25l16 9.25 15.999-9.25z"></path>
+                </g>
+            </svg>
+        </div>
+    </header>
+    <div class="container mx-auto px-4 py-12 ">
+        <div class="flex flex-col md:flex-row gap-8">
+            <!-- Left Section -->
+            <div class="md:w-1/2 flex flex-col justify-center">
+                <!-- Avatars -->
+                <div class="flex mb-8 -space-x-4">
+                    <img src="assets/avatar/avatar-01.jpg" alt="User avatar" class="w-12 h-12 rounded-full border-2 border-gray-900 object-cover">
+                    <img src="assets/avatar/avatar-02.jpg" alt="User avatar" class="w-12 h-12 rounded-full border-2 border-gray-900 object-cover">
+                    <img src="assets/avatar/avatar-03.jpg" alt="User avatar" class="w-12 h-12 rounded-full border-2 border-gray-900 object-cover">
+                    <img src="assets/avatar/avatar-04.jpg" alt="User avatar" class="w-12 h-12 rounded-full border-2 border-gray-900 object-cover">
+                    </div>
+                <h1 class="text-4xl font-bold text-white mb-8">Get a taste of the user-centric platform</h1>
+                
+                <!-- List Items -->
+                <div class="space-y-4">
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 mt-1">
+                            <div class="w-6 h-6  flex items-center justify-center">
+                                <i class="fas fa-check text-green-500 text-xs"></i>
+                            </div>
+                        </div>
+                        <p class="ml-3 text-gray-300">Intuitive user interface designed for seamless navigation</p>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 mt-1">
+                            <div class="w-6 h-6  flex items-center justify-center">
+                                <i class="fas fa-check text-green-500 text-xs"></i>
+                            </div>
+                        </div>
+                        <p class="ml-3 text-gray-300">Advanced analytics to track user engagement and behavior</p>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 mt-1">
+                            <div class="w-6 h-6  flex items-center justify-center">
+                                <i class="fas fa-check text-green-500 text-xs"></i>
+                            </div>
+                        </div>
+                        <p class="ml-3 text-gray-300">Customizable features to adapt to your specific needs</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right Section - Form -->
+            <div class="md:w-1/2">
+                <div class="bg-gray-800 rounded-lg p-10 shadow-xl">
+                    <h2 class="text-2xl font-bold text-white mb-6">Let's talk</h2>
+                    
+                    <form id="contact-form" class="space-y-4">
+                        <!-- Name Fields -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label for="firstName" class="block text-gray-300 text-sm font-medium mb-1">First Name <span style="color:red">*</span></label>
+                                <input 
+                                    type="text" 
+                                    id="firstName" 
+                                    name="firstName"
+                                    class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-primary-500 focus:border-transparent"
+                                    placeholder=""
+                                    required
+                                >
+                            </div>
+                            <div>
+                                <label for="lastName" class="block text-gray-300 text-sm font-medium mb-1">Last Name <span style="color:red">*</span></label>
+                                <input 
+                                    type="text" 
+                                    id="lastName" 
+                                    name="lastName"
+                                    class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-primary-500 focus:border-transparent"
+                                    placeholder=""
+                                    required
+                                >
+                            </div>
+                        </div>
+                        
+                        <!-- Email -->
+                        <div>
+                            <label for="email" class="block text-gray-300 text-sm font-medium mb-1">Email <span style="color:red">*</span></label>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                name="email"
+                                class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-primary-500 focus:border-transparent"
+                                placeholder=""
+                                required
+                            >
+                        </div>
+                        
+                        <!-- Phone -->
+                        <div>
+                            <label for="phone" class="block text-gray-300 text-sm font-medium mb-1">Phone <span style="color:red">*</span></label>
+                            <input 
+                                type="tel" 
+                                id="phone" 
+                                name="phone"
+                                class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-primary-500 focus:border-transparent"
+                                placeholder=""
+                                required
+                            >
+                        </div>
+                        
+                        <!-- Dropdown -->
+                        <div>
+                            <label for="service" class="block text-gray-300 text-sm font-medium mb-1">Service Interest <span style="color:red">*</span></label>
+                            <select 
+                                id="service" 
+                                name="service"
+                                class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-indigo-primary-500 focus:border-transparent"
+                                required
+                            >
+                                <option value="">Twitter</option>
+                                <option value="">Medium</option>
+                                <option value="">GitHub</option>
+                                
+                                >
+                            </select>
+                        </div>
+                        
+                        <!-- Textarea -->
+                        <div>
+                            <label for="message" class="block text-gray-300 text-sm font-medium mb-1">Message <span style="color:red">*</span></label>
+                            <textarea 
+                                id="message" 
+                                name="message"
+                                rows="4"
+                                class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-primary-500 focus:border-transparent"
+                                placeholder=""
+                                required
+                            ></textarea>
+                        </div>
+                        
+                        <!-- Submit Button -->
+                        <button 
+                            type="submit" 
+                            id="submit-btn"
+                            class="w-full bg-indigo-600  hover:bg-indigo-700 text-white font-medium py-3 px-4 rounded-md transition duration-300 flex items-center justify-center"
+                        >
+                            Request Demo  <span style="color: #7DD3FC;"> →</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Notification Toast -->
+    <div id="notification" class="fixed bottom-4 right-4 bg-gray-800 text-white px-4 py-3 rounded-lg shadow-lg transform transition-transform duration-300 translate-y-20 opacity-0 flex items-center">
+        <svg id="notification-icon" class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+        </svg>
+        <span id="notification-message"></span>
+    </div>
+    <script>
+        // DOM Elements
+        const contactForm = document.getElementById('contact-form');
+        const submitBtn = document.getElementById('submit-btn');
+        const notification = document.getElementById('notification');
+        const notificationMessage = document.getElementById('notification-message');
+        const notificationIcon = document.getElementById('notification-icon');
+        
+        // Form validation
+        function validateForm() {
+            const requiredFields = contactForm.querySelectorAll('[required]');
+            let isValid = true;
+            
+            requiredFields.forEach(field => {
+                if (!field.value.trim()) {
+                    field.classList.add('');
+                    isValid = false;
+                } else {
+                    field.classList.remove('');
+                }
+            });
+            
+            // Validate email format
+            const emailField = document.getElementById('email');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (emailField.value && !emailRegex.test(emailField.value)) {
+                emailField.classList.add('bg-indigo-primary-600');
+                isValid = false;
+            }
+            
+            return isValid;
+        }
+        
+        function showNotification(message, isSuccess = true) {
+            notificationMessage.textContent = message;
+            notification.classList.remove('translate-y-20', 'opacity-0');
+            notification.classList.add('translate-y-0', 'opacity-100');
+            
+            if (isSuccess) {
+                notification.classList.add('');
+                notification.classList.remove('');
+                notificationIcon.innerHTML = `
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                `;
+                notificationIcon.classList.add('text-white');
+                ;
+            } else {
+                ;
+                ;
+                notificationIcon.innerHTML = `
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                `;
+                
+                notificationIcon.classList.remove('text-white');
+            }
+            
+            setTimeout(() => {
+                notification.classList.remove('translate-y-0', 'opacity-100');
+                notification.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+        
+        // Form submission
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (validateForm()) {
+                // Simulate loading state
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = `
+                    <svg class="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Processing...
+                `;
+                
+                // Simulate API call
+                setTimeout(() => {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = `Request Demo →`;
+                    showNotification('Your demo request has been submitted successfully!', true);
+                    contactForm.reset(); // Clear form after submission
+                }, 1500);
+            } else {
+                showNotification('Please fill in all required fields correctly', false);
+            }
+        });
+        
+        // Real-time validation feedback
+        const inputs = contactForm.querySelectorAll('input, select, textarea');
+        inputs.forEach(input => {
+            input.addEventListener('blur', function() {
+                if (this.hasAttribute('required') && !this.value.trim()) {
+                    this.classList.add('');
+                } else {
+                    this.classList.remove('');
+                }
+                
+                // Special validation for email
+                if (this.type === 'email' && this.value) {
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(this.value)) {
+                        this.classList.add('');
+                    } else {
+                        this.classList.remove('');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

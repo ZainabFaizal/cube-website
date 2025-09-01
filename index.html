@@ -1,0 +1,1302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cube - Startup Landing Page</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Inter Font from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'dark-bg': '#0B0F1C',
+                        'dark-card': '#1C212E',
+                        'dark-light-text': '#E0E7FF',
+                        'dark-mid-text': '#A0AEC0',
+                        'indigo-primary': '#6366F1',
+                        'amber-accent': '#F59E0B',
+                        'card-bg': '#1A1E27',
+                        'circle-bg': '#2E3544',
+                        'hierarchy-grey': '#4A5568',
+                        'dark-card': '#1a1c2f',
+                        'indigo-primary': '#6366f1',
+                        'dark-light-text': '#f3f4f6',
+                        'dark-mid-text': '#9ca3af',
+                    },
+                    animation: {
+                        'ping-slow': 'ping-slow 3s cubic-bezier(0, 0, 0.2, 1) infinite',
+                    },
+                    keyframes: {
+                        'ping-slow': {
+                            '0%': { transform: 'scale(1)', opacity: '1' },
+                            '100%': { transform: 'scale(2)', opacity: '0' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Hero Section - Vanilla CSS */
+        :root {
+            --dark-bg: #0B0F1C;
+            --dark-light-text: #f3f4f6;
+            --dark-mid-text: #9ca3af;
+            --indigo-primary: #6366f1;
+            --gray-700: #374151;
+            --arrow-color: #7DD3FC;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .hero-section {
+            background-color: var(--dark-bg);
+            color: white;
+            text-align: center;
+            padding-bottom: 2.5rem;
+            margin: 0 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 600px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            margin: 2rem 0;
+        }
+        
+        .hero-content h1 {
+            font-size: 2.25rem;
+            font-weight: 800;
+            color: var(--dark-light-text);
+            border-radius: 0.5rem;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.25rem;
+            line-height: 1.625;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+            max-width: 42rem;
+            margin-left: auto;
+            margin-right: auto;
+            color: var(--dark-mid-text);
+        }
+        
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.25rem;
+            flex-wrap: wrap;
+            margin-bottom: 4rem;
+        }
+        
+        .hero-button {
+            display: inline-block;
+            padding: 0.625rem 1.5rem;
+            border-radius: 0.25rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            text-decoration: none;
+            width: 15rem;
+        }
+        
+        .hero-button.primary {
+            background-color: var(--indigo-primary);
+            color: white;
+            border: none;
+            border-radius: 0.25rem;
+        }
+        
+        .hero-button.primary:hover {
+            background-color: #4f46e5;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .hero-button.secondary {
+            background-color: var(--gray-700);
+            color: white;
+        }
+        
+        .hero-button.secondary:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-color: white;
+            transform: translateY(-0.125rem);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .hero-button span {
+            color: var(--arrow-color);
+        }
+        
+        .hero-image-container {
+            width: 80%;
+            max-width: 1000px;
+            margin-top: 2.5rem;
+            z-index: 10;
+            position: relative;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-image-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 0.75rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        /* Responsive styles for hero section */
+        @media (min-width: 640px) {
+            .hero-content h1 {
+                font-size: 4rem;
+            }
+            
+            .hero-button {
+                width: auto;
+            }
+        }
+        
+        /* Spacing for hero section */
+        .hero-content br {
+            display: block;
+            margin: 0.5rem 0;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-dark-light-text bg-dark-bg class="c92r2 co3b3 c4tb5 cepd2 cngj8 data-aos-easing="ease-out-cubic" data-aos-duration="500" data-aos-delay="0">
+    <!-- Navigation Bar -->
+    <header class="absolute top-0 left-0 w-full z-30">
+        <nav class="flex items-center justify-between p-4 md:px-8 max-w-7xl mx-auto relative">
+            <!-- Logo - Updated with SVG -->
+            <div class="flex-shrink-0">
+                <a href="index.html" aria-label="Cruip">
+                    <svg class="w-8 h-8" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient x1="0%" y1="32.443%" x2="104.18%" y2="50%" id="hlogo-a">
+                                <stop stop-color="#FFF" stop-opacity=".299" offset="0%"></stop>
+                                <stop stop-color="#7587E4" stop-opacity="0" offset="100%"></stop>
+                            </linearGradient>
+                            <linearGradient x1="18.591%" y1="0%" x2="100%" y2="100%" id="hlogo-b">
+                                <stop stop-color="#818CF8" offset="0%"></stop>
+                                <stop stop-color="#C7D2FE" offset="100%"></stop>
+                            </linearGradient>
+                        </defs>
+                        <g fill="none" fill-rule="evenodd">
+                            <path fill="#3730A3" d="M16 18.5V32l15.999-9.25V9.25z"></path>
+                            <path fill="#4F46E5" d="m0 23 16 9V18.501L0 9.251z"></path>
+                            <path fill-opacity=".64" fill="url(#hlogo-a)" d="M16 13 0 23l16 9 16-9z"></path>
+                            <path fill="url(#hlogo-b)" d="M16 0 0 9.25l16 9.25 15.999-9.25z"></path>
+                        </g>
+                    </svg>
+                </a>
+            </div>
+            <!-- Desktop Sign In / Get Started Buttons (hidden on small screens, shown on md and up) -->
+            <div class="hidden md:flex items-center space-x-4">
+                <a href="signin.html" class="px-5 py-2 text-dark-mid-text hover:text-white">Sign in</a>
+                <a href="signup.html" class="px-5 py-2 text-white bg-indigo-600 rounded-[10px] hover:bg-indigo-700">Get Started<span style="color: #7DD3FC;">-&gt;</span></a>
+            </div>
+            <!-- Mobile Sign In / Get Started Buttons -->
+            <div class="flex md:hidden items-center space-x-4">
+                <a href="signin.html" class="px-5 py-2 text-dark-mid-text hover:text-white">Sign in</a>
+                <a href="signup.html" class="px-5 py-2 text-white bg-indigo-600 rounded-[10px] hover:bg-indigo-700">Get Started<span style="color: #7DD3FC;">-&gt;</span></a>
+            </div>
+        
+    </header>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <br><br><br><br><br><br>
+            <h1>A powerful suite of <br> user-centric products</h1>
+            <p class="hero-subtitle">
+                Our landing page template works on all devices, so you only have to set it up once, and get beautiful results forever.
+            </p>
+            <div class="hero-buttons">
+                <a href="signup.html" class="hero-button primary">Get Started Free <span>-></span></a>
+                <a href="#" class="hero-button secondary">Read Docs</a>
+            </div>
+        </div>
+        <div class="hero-image-container">
+            <img src="assets/images/image1.png" alt="Product UI Mockup"
+                onerror="this.onerror=null;this.src='hero-image.png';">
+            <!-- Fallback to uploaded image if placeholder fails -->
+        </div>
+    </section>
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-3 md:py-15 bg-dark-bg">
+        <div class="flex flex-wrap justify-arround md:justify-around lg:justify-arround gap-3 py-12 px-10">
+            <!-- Testimonial 1 -->
+            <div class="flex flex-col items-center text-center md:w-[25%] lg:w-[30%]">
+                <img class="w-10 h-10 rounded-full mb-2" src="assets/testimonials/testimonial-01.jpg" onerror="this.onerror=null;this.src='https://placehold.co/80x80/6366f1/ffffff?text=JD'" alt="Customer Avatar">
+                <div class="flex space-x-1">
+                    <!-- Star 1 -->
+                    <svg class="w-5 h-5 text-yellow-500 fill-current" viewBox="0 0 24 24">
+                        <path d="M12 .587l3.692 7.568 8.308 1.206-6.004 5.855 1.416 8.271L12 18.896l-7.412 3.891 1.416-8.271-6.004-5.855 8.308-1.206z"/>
+                    </svg>
+                    <!-- Star 2 -->
+                    <svg class="w-5 h-5 text-yellow-500 fill-current" viewBox="0 0 24 24">
+                        <path d="M12 .587l3.692 7.568 8.308 1.206-6.004 5.855 1.416 8.271L12 18.896l-7.412 3.891 1.416-8.271-6.004-5.855 8.308-1.206z"/>
+                    </svg>
+                    <!-- Star 3 -->
+                    <svg class="w-5 h-5 text-yellow-500 fill-current" viewBox="0 0 24 24">
+                        <path d="M12 .587l3.692 7.568 8.308 1.206-6.004 5.855 1.416 8.271L12 18.896l-7.412 3.891 1.416-8.271-6.004-5.855 8.308-1.206z"/>
+                    </svg>
+                    <!-- Star 4 -->
+                    <svg class="w-5 h-5 text-yellow-500 fill-current" viewBox="0 0 24 24">
+                        <path d="M12 .587l3.692 7.568 8.308 1.206-6.004 5.855 1.416 8.271L12 18.896l-7.412 3.891 1.416-8.271-6.004-5.855 8.308-1.206z"/>
+                    </svg>
+                    <!-- Star 5 -->
+                    <svg class="w-5 h-5 text-yellow-500 fill-current" viewBox="0 0 24 24">
+                        <path d="M12 .587l3.692 7.568 8.308 1.206-6.004 5.855 1.416 8.271L12 18.896l-7.412 3.891 1.416-8.271-6.004-5.855 8.308-1.206z"/>
+                    </svg>
+                </div>
+                <p class="text-lg italic text-dark-mid-text mb-4">
+                    "The only tool that has the technology to meet our unique and complex needs."
+                </p>
+                <p class="ffont-semibold text-dark-light-text rounded-lg">Trustpilot <span>-</span><span style="color: #6366F1;">4.9/5</span> </p>
+            </div>
+            <!-- Testimonial 2 -->
+            <div class="flex flex-col items-center text-center md:w-[25%] lg:w-[30%]">
+                <img class="w-10 h-10 rounded-full mb-4" src="assets/testimonials/testimonial-02.jpg" onerror="this.onerror=null;this.src='https://placehold.co/80x80/f59e0b/ffffff?text=MS'" alt="Customer Avatar">
+                <div class="flex space-x-1">
+                    <!-- Star 1 -->
+                    <svg class="w-5 h-5 text-yellow-500 fill-current" viewBox="0 0 24 24">
+                        <path d="M12 .587l3.692 7.568 8.308 1.206-6.004 5.855 1.416 8.271L12 18.896l-7.412 3.891 1.416-8.271-6.004-5.855 8.308-1.206z"/>
+                    </svg>
+                    <!-- Star 2 -->
+                    <svg class="w-5 h-5 text-yellow-500 fill-current" viewBox="0 0 24 24">
+                        <path d="M12 .587l3.692 7.568 8.308 1.206-6.004 5.855 1.416 8.271L12 18.896l-7.412 3.891 1.416-8.271-6.004-5.855 8.308-1.206z"/>
+                    </svg>
+                    <!-- Star 3 -->
+                    <svg class="w-5 h-5 text-yellow-500 fill-current" viewBox="0 0 24 24">
+                        <path d="M12 .587l3.692 7.568 8.308 1.206-6.004 5.855 1.416 8.271L12 18.896l-7.412 3.891 1.416-8.271-6.004-5.855 8.308-1.206z"/>
+                    </svg>
+                    <!-- Star 4 -->
+                    <svg class="w-5 h-5 text-yellow-500 fill-current" viewBox="0 0 24 24">
+                        <path d="M12 .587l3.692 7.568 8.308 1.206-6.004 5.855 1.416 8.271L12 18.896l-7.412 3.891 1.416-8.271-6.004-5.855 8.308-1.206z"/>
+                    </svg>
+                    <!-- Star 5 -->
+                    <svg class="w-5 h-5 text-yellow-500 fill-current" viewBox="0 0 24 24">
+                        <path d="M12 .587l3.692 7.568 8.308 1.206-6.004 5.855 1.416 8.271L12 18.896l-7.412 3.891 1.416-8.271-6.004-5.855 8.308-1.206z"/>
+                    </svg>
+                </div>
+                <p class="text-lg italic text-dark-mid-text mb-4">
+                    "The only tool that has the technology to meet our unique and complex needs."
+                </p>
+                <p class="font-semibold text-dark-light-text rounded-lg">Capterra<span>-<span style="color: #6366F1;"><span> 4.7/5</span> </p>
+            </div>
+            <!-- Testimonial 3 -->
+            <div class="flex flex-col items-center text-center md:w-[25%] lg:w-[30%]">
+                <img class="w-10 h-10 rounded-full mb-4" src="assets/testimonials/testimonial-03.jpg" onerror="this.onerror=null;this.src='https://placehold.co/80x80/6b7280/ffffff?text=AC'" alt="Customer Avatar">
+                <div class="flex space-x-1">
+                    <!-- Star 1 -->
+                    <svg class="w-5 h-5 text-yellow-500 fill-current" viewBox="0 0 24 24">
+                        <path d="M12 .587l3.692 7.568 8.308 1.206-6.004 5.855 1.416 8.271L12 18.896l-7.412 3.891 1.416-8.271-6.004-5.855 8.308-1.206z"/>
+                    </svg>
+                    <!-- Star 2 -->
+                    <svg class="w-5 h-5 text-yellow-500 fill-current" viewBox="0 0 24 24">
+                        <path d="M12 .587l3.692 7.568 8.308 1.206-6.004 5.855 1.416 8.271L12 18.896l-7.412 3.891 1.416-8.271-6.004-5.855 8.308-1.206z"/>
+                    </svg>
+                    <!-- Star 3 -->
+                    <svg class="w-5 h-5 text-yellow-500 fill-current" viewBox="0 0 24 24">
+                        <path d="M12 .587l3.692 7.568 8.308 1.206-6.004 5.855 1.416 8.271L12 18.896l-7.412 3.891 1.416-8.271-6.004-5.855 8.308-1.206z"/>
+                    </svg>
+                    <!-- Star 4 -->
+                    <svg class="w-5 h-5 text-yellow-500 fill-current" viewBox="0 0 24 24">
+                        <path d="M12 .587l3.692 7.568 8.308 1.206-6.004 5.855 1.416 8.271L12 18.896l-7.412 3.891 1.416-8.271-6.004-5.855 8.308-1.206z"/>
+                    </svg>
+                    <!-- Star 5 -->
+                    <svg class="w-5 h-5 text-yellow-500 fill-current" viewBox="0 0 24 24">
+                        <path d="M12 .587l3.692 7.568 8.308 1.206-6.004 5.855 1.416 8.271L12 18.896l-7.412 3.891 1.416-8.271-6.004-5.855 8.308-1.206z"/>
+                    </svg>
+                </div>
+                <p class="text-lg italic text-dark-mid-text mb-4">
+                    "The only tool that has the technology to meet our unique and complex needs."
+                </p>
+                <p class="font-semibold text-dark-light-text rounded-lg">G2<span>-<span><span style="color: #6366F1;">4.9/5</span> </p>
+            </div>
+        </div>
+    </section>
+    <!-- Features Section -->
+    <section id="features" class="py-16 md:py-24 bg-dark-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-extrabold text-dark-light-text sm:text-5xl rounded-lg">
+                    Many tools to express your <br>creativity
+                </h2>
+                <p class="mt-4 text-xl text-dark-mid-text rounded-lg">
+                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia </br> deserunt mollit anim id est.
+                </p>
+            </div>
+            <div class="max-w-7xl mx-auto w-full relative pb-16">
+                <!-- Scrollable wrapper for Feature Cards Container -->
+                <div id="cardsContainerWrapper" class="relative overflow-x-auto scroll-smooth hide-scrollbar">
+                    <!-- Feature Cards Container -->
+                    <div id="featureCards" class="flex flex-nowrap gap-8 pb-4">
+                        <!-- Feature 1 -->
+                        <div class="bg-dark-card p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-dark-card w-[350px] flex-shrink-0">
+                            <div class="flex items-center justify-center h-12 w-12 rounded-full bg-indigo-primary text-white mb-4 shadow-md">
+                                <img src="assets/features-icons/features-icon-01.svg"/></div>
+                            <h3 class="text-xl font-bold text-dark-light-text mb-2 rounded-lg">Collaboration</h3>
+                            <p class="text-dark-mid-text text-sm">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.
+                            </p>
+                            <a href="#" class="inline-flex items-center mt-4 text-indigo-primary hover:underline font-semibold text-sm">
+                                Learn More -&gt;  
+                            </a>
+                        </div>
+                        <!-- Feature 2 -->
+                        <div class="bg-dark-card p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-dark-card w-[350px] flex-shrink-0">
+                            <div class="flex items-center justify-center h-12 w-12 rounded-full bg-indigo-primary text-white mb-4 shadow-md">
+                                <img src="assets/features-icons/features-icon-02.svg"/></div>
+                            <h3 class="text-xl font-bold text-dark-light-text mb-2 rounded-lg">Experiences</h3>
+                            <p class="text-dark-mid-text text-sm">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.
+                            </p>
+                            <a href="#" class="inline-flex items-center mt-4 text-indigo-primary hover:underline font-semibold text-sm">
+                                Learn More -&gt;
+                                </a>
+                        </div>
+                        <!-- Feature 3 -->
+                        <div class="bg-dark-card p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-dark-card w-[350px] flex-shrink-0">
+                            <div class="flex items-center justify-center h-12 w-12 rounded-full bg-indigo-primary text-white mb-4 shadow-md">
+                                <img src="assets/features-icons/features-icon-03.svg"/></div>
+                            <h3 class="text-xl font-bold text-dark-light-text mb-2 rounded-lg">Animation</h3>
+                            <p class="text-dark-mid-text text-sm">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.
+                            </p>
+                            <a href="#" class="inline-flex items-center mt-4 text-indigo-primary hover:underline font-semibold text-sm">
+                                Learn More -&gt;
+                                </a>
+                        </div>
+                        <!-- Feature 4 -->
+                        <div class="bg-dark-card p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-dark-card w-[350px] flex-shrink-0">
+                            <div class="flex items-center justify-center h-12 w-12 rounded-full bg-indigo-primary text-white mb-4 shadow-md">
+                                <img src="assets/features-icons/features-icon-04.svg"/></div>
+                            <h3 class="text-xl font-bold text-dark-light-text mb-2 rounded-lg">Modeling</h3>
+                            <p class="text-dark-mid-text text-sm">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.
+                            </p>
+                            <a href="#" class="inline-flex items-center mt-4 text-indigo-primary hover:underline font-semibold text-sm">
+                                Learn More -&gt;
+                                </a>
+                        </div>
+                    </div>
+                </div></br>
+                <!-- Sliding buttons container - now at the bottom right -->
+                <div class="absolute bottom-4 right-4 flex space-x-2 z-10">
+                    <!-- Left Arrow Button -->
+                    <button id="slideLeft" class="bg-gray-800 bg-opacity-50 text-white p-3 rounded-full opacity-75 hover:opacity-100 transition-opacity focus:outline-none focus:ring-2 focus:ring-indigo-primary">
+                        <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                        </svg>
+                    </button>
+                    <!-- Right Arrow Button -->
+                    <button id="slideRight" class="bg-gray-800 bg-opacity-50 text-white p-3 rounded-full opacity-75 hover:opacity-100 transition-opacity focus:outline-none focus:ring-2 focus:ring-indigo-primary">
+                        <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Product Showcase / Interactive Section -->
+<section id="product-showcase" class="py-12 md:py-20 bg-dark-bg">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-dark-light-text">
+                Feature that helps you create <br class="hidden sm:block"> your best designs
+            </h2>
+        </div>
+        
+        <div class="bg-dark-card p-4 md:p-6 lg:p-8 rounded-xl shadow-2xl border border-gray-700">
+            <!-- Tab Buttons -->
+            <div class="flex flex-wrap gap-2 md:gap-3 mb-6 md:mb-8">
+                <button class="tab-button active bg-indigo-primary text-white font-semibold py-2.5 px-5 md:py-3 md:px-7 rounded-full transition-all duration-300 hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-dark-card text-sm md:text-base" data-tab="everyone">Everyone</button>
+                <button class="tab-button bg-gray-700 text-dark-light-text font-semibold py-2.5 px-5 md:py-3 md:px-7 rounded-full transition-all duration-300 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-dark-card text-sm md:text-base" data-tab="freelancers">Freelancers</button>
+                <button class="tab-button bg-gray-700 text-dark-light-text font-semibold py-2.5 px-5 md:py-3 md:px-7 rounded-full transition-all duration-300 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-dark-card text-sm md:text-base" data-tab="organizations">Organizations</button>
+            </div>
+            
+            <!-- Tab Content -->
+            <div id="tab-content-container">
+                <!-- Everyone Tab Content -->
+                <div id="tab-everyone" class="tab-pane active grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    <div class="lg:pr-8">
+                        <h3 class="text-2xl md:text-3xl font-bold text-dark-light-text mb-4">Kickstart your project with these tools</h3>
+                        <p class="text-dark-mid-text text-base md:text-lg leading-relaxed mb-6">
+                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur, excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt laborum.
+                        </p>
+                    </div>
+                    <div class="relative mt-6 lg:mt-0">
+                        <img class="w-full h-auto rounded-xl shadow-lg" src="assets/images/image2.png" alt="Everyone Feature Image">
+                    </div>
+                </div>
+                
+                <!-- Freelancers Tab Content (Hidden by default) -->
+                <div id="tab-freelancers" class="tab-pane hidden grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    <div class="lg:pr-8">
+                        <h3 class="text-2xl md:text-3xl font-bold text-dark-light-text mb-4">Tech tools to kickstart freelance life</h3>
+                        <p class="text-dark-mid-text text-base md:text-lg leading-relaxed mb-6">
+                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur, excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt laborum.
+                        </p>
+                    </div>
+                    <div class="relative mt-6 lg:mt-0">
+                        <img class="w-full h-auto rounded-xl shadow-lg" src="assets/images/image2.png" alt="Freelancers Feature Image">
+                    </div>
+                </div>
+                
+                <!-- Organizations Tab Content (Hidden by default) -->
+                <div id="tab-organizations" class="tab-pane hidden grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    <div class="lg:pr-8">
+                        <h3 class="text-2xl md:text-3xl font-bold text-dark-light-text mb-4">Share your plan and clarify project risk</h3>
+                        <p class="text-dark-mid-text text-base md:text-lg leading-relaxed mb-6">
+                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur, excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt laborum.
+                        </p>
+                    </div>
+                    <div class="relative mt-6 lg:mt-0">
+                        <img class="w-full h-auto rounded-xl shadow-lg" src="assets/images/image2.png" alt="Organizations Feature Image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    <section id="integrations" class="py-10 md:py-20 bg-dark-bg">
+         <hr class="border-t border-gray-800 my-4"></br></br></br>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-extrabold text-dark-light-text sm:text-5xl rounded-lg">
+                    An ecosystem of <br>integrations
+                </h2> 
+            </div><br><br><br>
+            <div class="relative flex items-center justify-center py-20">
+                <!-- The inner ping circle (slightly darker blue) with slower animation -->
+                <div class="w-20 h-20 animate-ping-slow bg-blue-600 rounded-full absolute"></div>
+                <!-- A larger ping circle with slower animation -->
+                <div class="w-40 h-40 animate-ping-slow bg-blue-600 rounded-full absolute"></div>
+                <!-- The SVG logo in the center -->
+                <div class="absolute flex items-center justify-center">
+                    <svg class="w-16 h-16 text-blue-500" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient x1="0%" y1="32%" x2="104%" y2="50%" id="hlogo-a">
+                                <stop stop-color="#FFF" stop-opacity="299" offset="10%"></stop>
+                                <stop stop-color="#7587E4" stop-opacity="0" offset="100%"></stop>
+                            </linearGradient>
+                            <linearGradient x1="18%" y1="10%" x2="100%" y2="100%" id="hlogo-b">
+                                <stop stop-color="#818CF8" offset="0%"></stop>
+                                <stop stop-color="#C7D2FE" offset="100%"></stop>
+                            </linearGradient>
+                        </defs>
+                        <g fill="none" fill-rule="evenodd">
+                            <path fill="#3730A3" d="M16 18.5V32l15.999-9.25V9.25z"></path>
+                            <path fill="#4F46E5" d="m0 23 16 9V18.501L0 9.251z"></path>
+                            <path fill-opacity=".64" fill="url(#hlogo-a)" d="M16 13 0 23l16 9 16-9z"></path>
+                            <path fill="url(#hlogo-b)" d="M16 0 0 9.25l16 9.25 15.999-9.25z"></path>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+            <br><br><br><br>
+            <!-- Overall Hierarchy Container (Hidden on small screens, visible on medium and large) -->
+            <div class="hidden md:flex flex-col items-center mb-8">
+                <div class="w-px bg-gray-600 h-6"></div>
+                <div class="relative w-full max-w-[calc(6*9rem)] flex justify-between items-start mt-[-2px]">
+                    <!-- The main horizontal line -->
+                    <div class="h-px bg-gray-600 absolute top-0 left-0 right-0 z-0"></div>
+                    <!-- Individual vertical lines dropping from the horizontal line -->
+                    <div class="flex justify-between w-full relative z-10">
+                        <div class="w-px bg-gray-600 h-6"></div>
+                        <div class="w-px bg-gray-600 h-6"></div>
+                        <div class="w-px bg-gray-600 h-6"></div>
+                        <div class="w-px bg-gray-600 h-6"></div>
+                        <div class="w-px bg-gray-600 h-6"></div>
+                        <div class="w-px bg-gray-600 h-6"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Icon Cards Section -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-6 p-4 md:hidden">
+                <!-- Mobile & Small Screen Cards -->
+                <div class="w-full h-40 bg-card-bg rounded-xl shadow-lg flex items-center justify-center">
+                    <div class="w-20 h-20 bg-circle-bg rounded-full flex items-center justify-center">
+                        <img src="assets/integration-icons/integration-icon-01.svg" alt="Icon 1" class="w-12 h-12 rounded-full object-cover">
+                    </div>
+                </div>
+                <div class="w-full h-40 bg-card-bg rounded-xl shadow-lg flex items-center justify-center">
+                    <div class="w-20 h-20 bg-circle-bg rounded-full flex items-center justify-center">
+                        <img src="assets/integration-icons/integration-icon-02.svg" alt="Icon 2" class="w-12 h-12 rounded-full object-cover">
+                    </div>
+                </div>
+                <div class="w-full h-40 bg-card-bg rounded-xl shadow-lg flex items-center justify-center">
+                    <div class="w-20 h-20 bg-circle-bg rounded-full flex items-center justify-center">
+                        <img src="assets/integration-icons/integration-icon-03.svg" alt="Icon 3" class="w-12 h-12 rounded-full object-cover">
+                    </div>
+                </div>
+                <div class="w-full h-40 bg-card-bg rounded-xl shadow-lg flex items-center justify-center">
+                    <div class="w-20 h-20 bg-circle-bg rounded-full flex items-center justify-center">
+                        <img src="assets/integration-icons/integration-icon-04.svg" alt="Icon 4" class="w-10 h-10 rounded-full object-cover">
+                    </div>
+                </div>
+                <div class="w-full h-40 bg-card-bg rounded-xl shadow-lg flex items-center justify-center">
+                    <div class="w-20 h-20 bg-circle-bg rounded-full flex items-center justify-center">
+                        <img src="assets/integration-icons/integration-icon-05.svg" alt="Icon 5" class="w-10 h-10 rounded-full object-cover">
+                    </div>
+                </div>
+                <div class="w-full h-40 bg-card-bg rounded-xl shadow-lg flex items-center justify-center">
+                    <div class="w-20 h-20 bg-circle-bg rounded-full flex items-center justify-center">
+                        <img src="assets/integration-icons/integration-icon-06.svg" alt="Icon 6" class="w-10 h-10 rounded-full object-cover">
+                    </div>
+                </div>
+            </div></br>
+            <!-- Tab Screen Cards (Single row with hierarchy) -->
+            <div class="hidden md:flex lg:hidden justify-between max-w-[calc(6*10rem)] mx-auto -mt-12">
+                <!-- Card 1 -->
+                <div class="w-20 h-20 bg-card-bg rounded-xl shadow-lg flex items-center justify-center">
+                    <div class="w-14 h-14 bg-circle-bg rounded-full flex items-center justify-center">
+                        <img src="assets/integration-icons/integration-icon-01.svg" alt="Icon 1" class="w-8 h-8 rounded-full object-cover">
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="w-20 h-20 bg-card-bg rounded-xl shadow-lg flex items-center justify-center">
+                    <div class="w-14 h-14 bg-circle-bg rounded-full flex items-center justify-center">
+                        <img src="assets/integration-icons/integration-icon-02.svg" alt="Icon 2" class="w-8 h-8 rounded-full object-cover">
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="w-20 h-20 bg-card-bg rounded-xl shadow-lg flex items-center justify-center">
+                    <div class="w-14 h-14 bg-circle-bg rounded-full flex items-center justify-center">
+                        <img src="assets/integration-icons/integration-icon-03.svg" alt="Icon 3" class="w-8 h-8 rounded-full object-cover">
+                    </div>
+                </div>
+                <!-- Card 4 -->
+                <div class="w-20 h-20 bg-card-bg rounded-xl shadow-lg flex items-center justify-center">
+                    <div class="w-14 h-14 bg-circle-bg rounded-full flex items-center justify-center">
+                        <img src="assets/integration-icons/integration-icon-04.svg" alt="Icon 4" class="w-7 h-7 rounded-full object-cover">
+                    </div>
+                </div>
+                <!-- Card 5 -->
+                <div class="w-20 h-20 bg-card-bg rounded-xl shadow-lg flex items-center justify-center">
+                    <div class="w-14 h-14 bg-circle-bg rounded-full flex items-center justify-center">
+                        <img src="assets/integration-icons/integration-icon-05.svg" alt="Icon 5" class="w-7 h-7 rounded-full object-cover">
+                    </div>
+                </div>
+                <!-- Card 6 -->
+                <div class="w-20 h-20 bg-card-bg rounded-xl shadow-lg flex items-center justify-center">
+                    <div class="w-14 h-14 bg-circle-bg rounded-full flex items-center justify-center">
+                        <img src="assets/integration-icons/integration-icon-06.svg" alt="Icon 6" class="w-7 h-7 rounded-full object-cover">
+                    </div>
+                </div>
+            </div></br>
+            <!-- Desktop Cards Aligned with Hierarchy -->
+            <div class="hidden lg:flex justify-between max-w-[calc(6*11rem)] mx-auto -mt-12">
+                <!-- Card 1 -->
+                <div class="w-28 h-28 bg-card-bg rounded-xl shadow-lg flex items-center justify-center">
+                    <div class="w-20 h-20 bg-circle-bg rounded-full flex items-center justify-center">
+                        <img src="assets/integration-icons/integration-icon-01.svg" alt="Icon 1" class="w-12 h-12 rounded-full object-cover">
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="w-28 h-28 bg-card-bg rounded-xl shadow-lg flex items-center justify-center">
+                    <div class="w-20 h-20 bg-circle-bg rounded-full flex items-center justify-center">
+                        <img src="assets/integration-icons/integration-icon-02.svg" alt="Icon 2" class="w-12 h-12 rounded-full object-cover">
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="w-28 h-28 bg-card-bg rounded-xl shadow-lg flex items-center justify-center">
+                    <div class="w-20 h-20 bg-circle-bg rounded-full flex items-center justify-center">
+                        <img src="assets/integration-icons/integration-icon-03.svg" alt="Icon 3" class="w-12 h-12 rounded-full object-cover">
+                    </div>
+                </div>
+                <!-- Card 4 -->
+                <div class="w-28 h-28 bg-card-bg rounded-xl shadow-lg flex items-center justify-center">
+                    <div class="w-20 h-20 bg-circle-bg rounded-full flex items-center justify-center">
+                        <img src="assets/integration-icons/integration-icon-04.svg" alt="Icon 4" class="w-10 h-10 rounded-full object-cover">
+                    </div>
+                </div>
+                <!-- Card 5 -->
+                <div class="w-28 h-28 bg-card-bg rounded-xl shadow-lg flex items-center justify-center">
+                    <div class="w-20 h-20 bg-circle-bg rounded-full flex items-center justify-center">
+                        <img src="assets/integration-icons/integration-icon-05.svg" alt="Icon 5" class="w-10 h-10 rounded-full object-cover">
+                    </div>
+                </div>
+                <!-- Card 6 -->
+                <div class="w-28 h-28 bg-card-bg rounded-xl shadow-lg flex items-center justify-center">
+                    <div class="w-20 h-20 bg-circle-bg rounded-full flex items-center justify-center">
+                        <img src="assets/integration-icons/integration-icon-06.svg" alt="Icon 6" class="w-10 h-10 rounded-full object-cover">
+                    </div>
+                </div>
+            </div>
+                </section>
+                
+    <section class="bg-dark-bg text-dark-light-text flex flex-col items-center py-12 md:py-20 px-4 sm:px-6">
+    <div class="text-center mb-8 md:mb-12 p-4 md:p-8 max-w-3xl">
+        <h2 class="text-2xl md:text-4xl font-extrabold text-dark-light-text sm:text-5xl rounded-lg">
+            Let's find the right plan for <br class="hidden sm:block"> your business
+        </h2>
+        <p class="mt-3 md:mt-4 text-base md:text-xl text-dark-mid-text rounded-lg">
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt <br class="hidden md:block"> mollit anim id est.
+        </p>
+    </div>
+    
+    
+    <!-- Pricing Table Grid Container -->
+    <div class="w-full max-w-6xl mx-auto rounded-xl shadow-xl overflow-hidden bg-dark-card mb-8">
+        <!-- Mobile Toggle Section -->
+        <div class="md:hidden p-4 bg-light-transparent-grey">
+            <div class="flex items-center justify-center space-x-4">
+                <span class="text-dark-mid-text text-sm">Monthly</span>
+                <!-- Toggle Button -->
+                <label class="relative inline-flex items-center cursor-pointer">
+                    <input type="checkbox" id="pricing-toggle-mobile" class="sr-only peer">
+                    <div class="w-11 h-6 bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-5 peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-indigo-600"></div>
+                </label>
+                <span class="text-dark-mid-text font-medium text-sm">Yearly <span style="color: #10b981;" >(-20%)</span></span>
+            </div>
+        </div>
+        
+        <!-- Desktop/Tablet Pricing Table -->
+        <div class="hidden md:block pricing-table-grid w-full lg:w-[90%] mx-auto rounded-xl shadow-xl overflow-hidden
+                    grid grid-cols-1 md:grid-cols-4
+                    bg-dark-card mb-8 p-4 md:p-8">
+            <!-- Row 1: Toggle and Plan Headers (grouped for shared background) -->
+            <div class="col-span-full grid grid-cols-1 md:grid-cols-4 bg-light-transparent-grey py-2 md:py-2">
+                <!-- Column 1: Toggle -->
+                <div class="pricing-cell flex flex-col justify-end">
+                    <div class="flex items-center space-x-4">
+                        <span class="text-dark-mid-text">Monthly</span>
+                        <!-- Toggle Button -->
+                        <label class="relative inline-flex items-center cursor-pointer">
+                            <input type="checkbox" id="pricing-toggle-new" class="sr-only peer">
+                            <div class="w-11 h-6 bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-5 peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-indigo-600"></div>
+                        </label>
+                        <span class="text-dark-mid-text font-medium text-[14px] md:text-base">Yearly <span style="color: #10b981;" >(-20%)</span></span>
+                    </div>
+                </div>
+                <!-- Column 2: Starter Plan Header -->
+                <div class="pricing-cell text-center flex flex-col justify-end">
+                    <h3 class="text-[14px] md:text-[16px] font-bold mb-1" style="color:#6366F1;">Starter</h3>
+                    <div class="font-extrabold text-white">
+                        <span class="price-value text-[20px] md:text-[24px]" data-monthly="$29" data-yearly="$23">$29</span><span class="text-[14px] md:text-[16px] text-dark-mid-text">/mo</span>
+                    </div>
+                </div>
+                <!-- Column 3: Agency Plan Header -->
+                <div class="pricing-cell text-center flex flex-col justify-end">
+                    <h3 class="text-[14px] md:text-[16px] font-bold text-dark-light-text mb-1" style="color:#6366F1;">Agency</h3>
+                    <div class="font-extrabold text-white">
+                        <span class="price-value text-[20px] md:text-[24px]" data-monthly="$49" data-yearly="$39">$49</span><span class="text-[14px] md:text-[16px] text-dark-mid-text">/mo</span>
+                    </div>
+                </div>
+                <!-- Column 4: Team Plan Header -->
+                <div class="pricing-cell text-center flex flex-col justify-end">
+                    <h3 class="text-[14px] md:text-[16px] font-bold text-dark-light-text mb-1" style="color:#6366F1;">Team</h3>
+                    <div class="font-extrabold text-white">
+                        <span class="price-value text-[20px] md:text-[24px]" data-monthly="$79" data-yearly="$63">$79</span><span class="text-[14px] md:text-[16px] text-dark-mid-text">/mo</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- USAGE (merged column) -->
+            <div class="col-span-full merged-row-header bg-dark-card py-3 px-6 text-gray-400 text-xs uppercase font-semibold">
+                USAGE
+            </div>
+            
+            <!-- Usage Rows -->
+            <div class="col-span-full grid grid-cols-1 md:grid-cols-4 bg-light-transparent-grey">
+                <div class="pricing-cell p-3 text-[14px] md:text-[16px] text-left" style="color: #e2e8f0;">Admins & Members</div>
+                <div class="pricing-cell p-3 font-medium text-sm text-center" style="color: #e2e8f0;">4</div>
+                <div class="pricing-cell p-3 font-medium text-sm text-center" style="color: #e2e8f0;">12</div>
+                <div class="pricing-cell p-3 font-medium text-sm text-center" style="color: #e2e8f0;">Unlimited</div>
+            </div>
+            
+            <div class="col-span-full grid grid-cols-1 md:grid-cols-4 bg-dark-card">
+                <div class="pricing-cell p-3 text-[14px] md:text-[16px] text-left" style="color: #e2e8f0;">File Storage</div>
+                <div class="pricing-cell p-3 font-medium text-sm text-center" style="color: #e2e8f0;">10GB</div>
+                <div class="pricing-cell p-3 font-medium text-sm text-center" style="color: #e2e8f0;">50GB</div>
+                <div class="pricing-cell p-3 font-medium text-sm text-center" style="color: #e2e8f0;">Unlimited</div>
+            </div>
+            
+            <div class="col-span-full grid grid-cols-1 md:grid-cols-4 bg-light-transparent-grey">
+                <div class="pricing-cell p-3 text-[14px] md:text-[16px] text-left" style="color: #e2e8f0;">Active Users</div>
+                <div class="pricing-cell p-3 font-medium text-sm text-center" style="color: #e2e8f0;">500</div>
+                <div class="pricing-cell p-3 font-medium text-sm text-center" style="color: #e2e8f0;">1500</div>
+                <div class="pricing-cell p-3 font-medium text-sm text-center" style="color: #e2e8f0;">Unlimited</div>
+            </div>
+            
+            <!-- FEATURES (merged column) -->
+            <div class="col-span-full merged-row-header bg-dark-card mt-8 lg:mt-0 py-3 px-6 text-gray-400 text-xs uppercase font-semibold">
+                FEATURES
+            </div>
+            
+            <!-- Features Rows -->
+            <div class="col-span-full grid grid-cols-1 md:grid-cols-4 bg-light-transparent-grey">
+                <div class="pricing-cell p-3 text-[14px] md:text-[16px] text-left" style="color: #e2e8f0;">Unlimited Activities</div>
+                <div class="pricing-cell p-3 text-dark-light-text text-sm text-center"><span class="inline-block w-4 h-4 text-green-500 align-middle">&#10003;</span></div>
+                <div class="pricing-cell p-3 text-dark-light-text text-sm text-center"><span class="inline-block w-4 h-4 text-green-500 align-middle">&#10003;</span></div>
+                <div class="pricing-cell p-3 text-dark-light-text text-sm text-center"><span class="inline-block w-4 h-4 text-green-500 align-middle">&#10003;</span></div>
+            </div>
+            
+            <div class="col-span-full grid grid-cols-1 md:grid-cols-4 bg-dark-card">
+                <div class="pricing-cell p-3 text-[14px] md:text-[16px] text-left" style="color: #e2e8f0;">Data Export</div>
+                <div class="pricing-cell p-3 text-dark-light-text text-sm text-center"><span class="inline-block w-4 h-4 text-gray-400 align-middle font-bold">—</span></div>
+                <div class="pricing-cell p-3 text-dark-light-text text-sm text-center"><span class="inline-block w-4 h-4 text-green-500 align-middle">&#10003;</span></div>
+                <div class="pricing-cell p-3 text-dark-light-text text-sm text-center"><span class="inline-block w-4 h-4 text-green-500 align-middle">&#10003;</span></div>
+            </div>
+            
+            <div class="col-span-full grid grid-cols-1 md:grid-cols-4 bg-light-transparent-grey">
+                <div class="pricing-cell p-3 text-[14px] md:text-[16px] text-left" style="color: #e2e8f0;">Adjust Group Sizes</div>
+                <div class="pricing-cell p-3 text-dark-light-text text-sm text-center"><span class="inline-block w-4 h-4 text-gray-400 align-middle font-bold">—</span></div>
+                <div class="pricing-cell p-3 text-dark-light-text text-sm text-center"><span class="inline-block w-4 h-4 text-green-500 align-middle">&#10003;</span></div>
+                <div class="pricing-cell p-3 text-dark-light-text text-sm text-center"><span class="inline-block w-4 h-4 text-green-500 align-middle">&#10003;</span></div>
+            </div>
+            
+            <!-- Final Row: Buttons -->
+            <div class="col-span-full grid grid-cols-1 md:grid-cols-4 bg-dark-card py-4 md:py-8">
+                <div class="pricing-cell p-3"></div> <!-- Empty cell for alignment with buttons -->
+                <div class="pricing-cell p-3 text-center">
+                    <a href="#" class="block px-4 py-2 bg-indigo-primary text-white font-semibold rounded-[5px] hover:bg-indigo-600 transition duration-300 shadow-md text-sm">
+                        Free Trial <span style="color: #7DD3FC;">&rarr;</span>
+                    </a>
+                </div>
+                <div class="pricing-cell p-3 text-center">
+                    <a href="#" class="block px-4 py-2 bg-indigo-primary text-white font-semibold rounded-[5px] hover:bg-indigo-600 transition duration-300 shadow-md text-sm">
+                        Free Trial <span style="color: #7DD3FC;">&rarr;</span>
+                    </a>
+                </div>
+                <div class="pricing-cell p-3 text-center">
+                    <a href="#" class="block px-4 py-2 bg-indigo-primary text-white font-semibold rounded-[5px] hover:bg-indigo-600 transition duration-300 shadow-md text-sm">
+                        Free Trial <span style="color: #7DD3FC;">&rarr;</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Pricing Tables -->
+        <div class="md:hidden space-y-8">
+            <!-- Starter Plan Table -->
+            <div class="bg-light-transparent-grey rounded-xl overflow-hidden shadow-lg">
+                <!-- Plan Header -->
+                <div class="p-4 bg-light-transparent-grey">
+                    <h3 class="text-xl font-bold mb-2" style="color:#6366F1;">Starter</h3>
+                    <div class="font-extrabold text-white">
+                        <span class="price-value text-2xl" data-monthly="$29" data-yearly="$23">$29</span><span class="text-base text-dark-mid-text">/mo</span>
+                    </div>
+                </div>
+                
+                <!-- USAGE Section -->
+                <div class="bg-dark-card py-2 px-4">
+                    <h4 class="text-sm uppercase font-semibold text-gray-400 mb-2 bg-dark-card">USAGE</h4>
+                </div>
+                
+                <!-- Usage Rows -->
+                <div class="bg-light-transparent-grey">
+                    <div class="flex justify-between p-3 border-b border-gray-700">
+                        <span class="text-sm" style="color: #e2e8f0;">Admins & Members</span>
+                        <span class="text-sm font-medium" style="color: #e2e8f0;">4</span>
+                    </div>
+                    <div class="flex justify-between p-3 border-b border-gray-700">
+                        <span class="text-sm" style="color: #e2e8f0;">File Storage</span>
+                        <span class="text-sm font-medium" style="color: #e2e8f0;">10GB</span>
+                    </div>
+                    <div class="flex justify-between p-3">
+                        <span class="text-sm" style="color: #e2e8f0;">Active Users</span>
+                        <span class="text-sm font-medium" style="color: #e2e8f0;">500</span>
+                    </div>
+                </div>
+                
+                <!-- FEATURES Section -->
+                <div class="bg-dark-card py-2 px-4 mt-4">
+                    <h4 class="text-sm uppercase font-semibold text-gray-400 mb-2 bg-dark-card">FEATURES</h4>
+                </div>
+                
+                <!-- Features Rows -->
+                <div class="bg-light-transparent-grey">
+                    <div class="flex justify-between p-3 border-b border-gray-700">
+                        <span class="text-sm" style="color: #e2e8f0;">Unlimited Activities</span>
+                        <span class="inline-block w-4 h-4 text-green-500">&#10003;</span>
+                    </div>
+                    <div class="flex justify-between p-3 border-b border-gray-700">
+                        <span class="text-sm" style="color: #e2e8f0;">Data Export</span>
+                        <span class="inline-block w-4 h-4 text-gray-400 font-bold">—</span>
+                    </div>
+                    <div class="flex justify-between p-3">
+                        <span class="text-sm" style="color: #e2e8f0;">Adjust Group Sizes</span>
+                        <span class="inline-block w-4 h-4 text-gray-400 font-bold">—</span>
+                    </div>
+                </div>
+                
+                <!-- Button -->
+                <div class="p-4 bg-dark-card">
+                    <a href="#" class="block w-full px-5 py-3 bg-indigo-primary text-white font-semibold rounded-[5px] hover:bg-indigo-600 transition duration-300 shadow-md text-center">
+                        Free Trial <span style="color: #7DD3FC;">&rarr;</span>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Agency Plan Table -->
+            <div class="bg-dark-card rounded-xl overflow-hidden shadow-lg">
+                <!-- Plan Header -->
+                <div class="p-4 bg-dark-card">
+                    <h3 class="text-xl font-bold mb-2" style="color:#6366F1;">Agency</h3>
+                    <div class="font-extrabold text-white">
+                        <span class="price-value text-2xl" data-monthly="$49" data-yearly="$39">$49</span><span class="text-base text-dark-mid-text">/mo</span>
+                    </div>
+                </div>
+                
+                <!-- USAGE Section -->
+                <div class="bg-dark-card py-2 px-4">
+                    <h4 class="text-sm uppercase font-semibold text-gray-400 mb-2">USAGE</h4>
+                </div>
+                
+                <!-- Usage Rows -->
+                <div class="bg-light-transparent-grey">
+                    <div class="flex justify-between p-3 border-b border-gray-700">
+                        <span class="text-sm" style="color: #e2e8f0;">Admins & Members</span>
+                        <span class="text-sm font-medium" style="color: #e2e8f0;">12</span>
+                    </div>
+                    <div class="flex justify-between p-3 border-b border-gray-700">
+                        <span class="text-sm" style="color: #e2e8f0;">File Storage</span>
+                        <span class="text-sm font-medium" style="color: #e2e8f0;">50GB</span>
+                    </div>
+                    <div class="flex justify-between p-3">
+                        <span class="text-sm" style="color: #e2e8f0;">Active Users</span>
+                        <span class="text-sm font-medium" style="color: #e2e8f0;">1500</span>
+                    </div>
+                </div>
+                
+                <!-- FEATURES Section -->
+                <div class="bg-dark-card py-2 px-4 mt-4">
+                    <h4 class="text-sm uppercase font-semibold text-gray-400 mb-2">FEATURES</h4>
+                </div>
+                
+                <!-- Features Rows -->
+                <div class="bg-light-transparent-grey">
+                    <div class="flex justify-between p-3 border-b border-gray-700">
+                        <span class="text-sm" style="color: #e2e8f0;">Unlimited Activities</span>
+                        <span class="inline-block w-4 h-4 text-green-500">&#10003;</span>
+                    </div>
+                    <div class="flex justify-between p-3 border-b border-gray-700">
+                        <span class="text-sm" style="color: #e2e8f0;">Data Export</span>
+                        <span class="inline-block w-4 h-4 text-green-500">&#10003;</span>
+                    </div>
+                    <div class="flex justify-between p-3">
+                        <span class="text-sm" style="color: #e2e8f0;">Adjust Group Sizes</span>
+                        <span class="inline-block w-4 h-4 text-green-500">&#10003;</span>
+                    </div>
+                </div>
+                
+                <!-- Button -->
+                <div class="p-4 bg-dark-card">
+                    <a href="#" class="block w-full px-5 py-3 bg-indigo-primary text-white font-semibold rounded-[5px] hover:bg-indigo-600 transition duration-300 shadow-md text-center">
+                        Free Trial <span style="color: #7DD3FC;">&rarr;</span>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Team Plan Table -->
+            <div class="bg-light-transparent-grey rounded-xl overflow-hidden shadow-lg">
+                <!-- Plan Header -->
+                <div class="p-4 bg-light-transparent-grey">
+                    <h3 class="text-xl font-bold mb-2" style="color:#6366F1;">Team</h3>
+                    <div class="font-extrabold text-white">
+                        <span class="price-value text-2xl" data-monthly="$79" data-yearly="$63">$79</span><span class="text-base text-dark-mid-text">/mo</span>
+                    </div>
+                </div>
+                
+                <!-- USAGE Section -->
+                <div class="bg-dark-card py-2 px-4">
+                    <h4 class="text-sm uppercase font-semibold text-gray-400 mb-2">USAGE</h4>
+                </div>
+                
+                <!-- Usage Rows -->
+                <div class="bg-light-transparent-grey">
+                    <div class="flex justify-between p-3 border-b border-gray-700">
+                        <span class="text-sm" style="color: #e2e8f0;">Admins & Members</span>
+                        <span class="text-sm font-medium" style="color: #e2e8f0;">Unlimited</span>
+                    </div>
+                    <div class="flex justify-between p-3 border-b border-gray-700">
+                        <span class="text-sm" style="color: #e2e8f0;">File Storage</span>
+                        <span class="text-sm font-medium" style="color: #e2e8f0;">Unlimited</span>
+                    </div>
+                    <div class="flex justify-between p-3">
+                        <span class="text-sm" style="color: #e2e8f0;">Active Users</span>
+                        <span class="text-sm font-medium" style="color: #e2e8f0;">Unlimited</span>
+                    </div>
+                </div>
+                
+                <!-- FEATURES Section -->
+                <div class="bg-dark-card py-2 px-4 mt-4">
+                    <h4 class="text-sm uppercase font-semibold text-gray-400 mb-2">FEATURES</h4>
+                </div>
+                
+                <!-- Features Rows -->
+                <div class="bg-light-transparent-grey">
+                    <div class="flex justify-between p-3 border-b border-gray-700">
+                        <span class="text-sm" style="color: #e2e8f0;">Unlimited Activities</span>
+                        <span class="inline-block w-4 h-4 text-green-500">&#10003;</span>
+                    </div>
+                    <div class="flex justify-between p-3 border-b border-gray-700">
+                        <span class="text-sm" style="color: #e2e8f0;">Data Export</span>
+                        <span class="inline-block w-4 h-4 text-green-500">&#10003;</span>
+                    </div>
+                    <div class="flex justify-between p-3">
+                        <span class="text-sm" style="color: #e2e8f0;">Adjust Group Sizes</span>
+                        <span class="inline-block w-4 h-4 text-green-500">&#10003;</span>
+                    </div>
+                </div>
+                
+                <!-- Button -->
+                <div class="p-4 bg-dark-card">
+                    <a href="#" class="block w-full px-5 py-3 bg-indigo-primary text-white font-semibold rounded-[5px] hover:bg-indigo-600 transition duration-300 shadow-md text-center">
+                        Free Trial <span style="color: #7DD3FC;">&rarr;</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+        <!-- Testimonials Section -->
+       <section id="testimonials-2" class="py-16 md:py-24 bg-dark-bg">
+    <div class="flex flex-col items-center justify-center">
+        <!-- Testimonial 1 -->
+        <div class="flex flex-col items-center p-8">
+            <div class="flex items-center mb-4">
+                <img class="w-20 h-20 rounded-full object-cover" src="assets/testimonials/testimonial-04.jpg" alt="User Avatar">
+                <span class="text-7xl text-indigo-primary opacity-100">"</span>
+            </div>
+            <p class="text-center max-w-2xl text-lg italic text-dark-mid-text mb-4">
+                "I had to work 8 hours a day on one app. With Cube, I only need one or two hours. I just need to work on creatives, because everything else is automated."<br><span style="color: #e2e8f0;">Mirta Jiang</span> - <span style="color:#6366F1">Paid Apps</span>
+            </p>
+        </div>
+    </div>
+</section>
+        
+        <section>
+            <div class="text-gray-300 py-12 px-6 lg:px-24 font-sans">
+                <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>          
+                        <h1 class="text-4xl font-extrabold text-dark-light-text sm:text-5xl rounded-lg">
+                            FAQ<span>s</span>
+                        </h1>
+                    </div></br></br>
+                    
+                    <!-- FAQ Item 1 -->
+                    <div>
+                        <h4 class="font-bold text-white mb-2 text-lg">What is the difference between the Free and Paid versions?</h4>
+                        <p class="text-sm leading-relaxed text-dark-mid-text">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam.
+                        </p>
+                    </div>
+                    <!-- FAQ Item 2 -->
+                    <div>
+                        <h4 class="font-bold text-white mb-2 text-lg">Do I need coding knowledge to use this product?</h4></br>
+                        <p class="text-sm leading-relaxed text-dark-mid-text">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam.
+                        </p>
+                    </div>
+                    <!-- FAQ Item 3 -->
+                    <div>
+                        <h4 class="font-bold text-white mb-2 text-lg">Do you have student or non-profit discounts?</h4>
+                        <p class="text-sm leading-relaxed text-dark-mid-text">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam.
+                        </p>
+                    </div>
+                    <!-- FAQ Item 4 -->
+                    <div>
+                        <h4 class="font-bold text-white mb-2 text-lg">Is there a way to become an Affiliate reseller?</h4>
+                        <p class="text-sm leading-relaxed text-dark-mid-text">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam.
+                        </p>
+                    </div>
+                    <!-- FAQ Item 5 -->
+                    <div>
+                        <h4 class="font-bold text-white mb-2 text-lg">How is the price determined?</h4>
+                        <p class="text-sm leading-relaxed text-dark-mid-text">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam.
+                        </p>
+                    </div>
+                    <!-- FAQ Item 6 -->
+                    <div>
+                        <h4 class="font-bold text-white mb-2 text-lg">What forms of payment do you accept?</h4>
+                        <p class="text-sm leading-relaxed text-dark-mid-text">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <br><br><br>
+        <section>
+            <div>          
+                <h1 class="text-4xl font-extrabold text-dark-light-text sm:text-5xl rounded-lg text-center">
+                    Join the most flexible user-<br>centric platform for teams
+                </h1>
+            </div>
+            <br><br>
+            <div class="hero-buttons flex justify-center gap-5 flex-wrap mb-16">
+                <a href="#" class="hero-button primary px-6 py-2.5 rounded-sm font-semibold transition-all duration-300 shadow-md bg-indigo-primary rounded-full hover:bg-indigo-700 text-center text-white border-none  hover:shadow-lg sm:w-auto w-60">Get Started Free <span style="color: #7DD3FC;">-&gt;</span></a>
+                <a href="#" class="hero-button secondary px-6 py-2.5 rounded-sm font-semibold shadow-md bg-gray-700 text-center text-white hover:bg-white/10 hover:border-white hover:-translate-y-0.5 hover:shadow-lg sm:w-auto w-60">Read Docs</a>
+        </div>
+    </section>
+    
+<footer class="bg-transparent text-gray-400 py-6 px-4 lg:px-16 w-full rounded-lg">
+    <hr class="border-t border-gray-700 my-4">
+    <br><br>
+    <div class="max-w-7xl mx-auto">
+        <!-- Main footer content: columns for logo and navigation links -->
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+            <!-- Logo Section - occupies 1 column on medium and large screens -->
+            <div class="md:col-span-1">
+                <!-- Placeholder for cube-logo.svg. In a real app, this would be your actual SVG. -->
+                <svg class="w-8 h-8" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient x1="0%" y1="32.443%" x2="104.18%" y2="50%" id="hlogo-a">
+                            <stop stop-color="#FFF" stop-opacity=".299" offset="0%"></stop>
+                            <stop stop-color="#7587E4" stop-opacity="0" offset="100%"></stop>
+                        </linearGradient>
+                        <linearGradient x1="18.591%" y1="0%" x2="100%" y2="100%" id="hlogo-b">
+                            <stop stop-color="#818CF8" offset="0%"></stop>
+                            <stop stop-color="#C7D2FE" offset="100%"></stop>
+                        </linearGradient>
+                    </defs>
+                    <g fill="none" fill-rule="evenodd">
+                        <path fill="#3730A3" d="M16 18.5V32l15.999-9.25V9.25z"></path>
+                        <path fill="#4F46E5" d="m0 23 16 9V18.501L0 9.251z"></path>
+                        <path fill-opacity=".64" fill="url(#hlogo-a)" d="M16 13 0 23l16 9 16-9z"></path>
+                        <path fill="url(#hlogo-b)" d="M16 0 0 9.25l16 9.25 15.999-9.25z"></path>
+                    </g>
+                </svg>
+            </div>
+            
+            <!-- Products Column -->
+            <div class="md:col-span-1">
+                <h4 class="font-bold text-white mb-3 rounded-md text-xs">PRODUCTS</h4>
+                <ul class="space-y-1 text-xs">
+                    <li><a href="#" class="hover:text-white rounded-md">Cube Manage</a></li>
+                    <li><a href="#" class="hover:text-white rounded-md">Cube Analyse</a></li>
+                    <li><a href="#" class="hover:text-white rounded-md">Cube Launch</a></li>
+                    <li><a href="#" class="hover:text-white rounded-md">Experimentation</a></li>
+                </ul>
+            </div>
+            <!-- Resources Column -->
+            <div class="md:col-span-1">
+                <h4 class="font-bold text-white mb-3 rounded-md text-xs">RESOURCES</h4>
+                <ul class="space-y-1 text-xs">
+                    <li><a href="#" class="hover:text-white rounded-md">Blog</a></li>
+                    <li><a href="#" class="hover:text-white rounded-md">Cheat Sheet</a></li>
+                    <li><a href="#" class="hover:text-white rounded-md">Channel Partners</a></li>
+                    <li><a href="#" class="hover:text-white rounded-md">Affiliate Program</a></li>
+                </ul>
+            </div>
+            <!-- Projects Column -->
+            <div class="md:col-span-1">
+                <h4 class="font-bold text-white mb-3 rounded-md text-xs">PROJECTS</h4>
+                <ul class="space-y-1 text-xs">
+                    <li><a href="#" class="hover:text-white rounded-md">Session Recording</a></li>
+                    <li><a href="#" class="hover:text-white rounded-md">Feature Flags</a></li>
+                    <li><a href="#" class="hover:text-white rounded-md">Heatmaps</a></li>
+                    <li><a href="#" class="hover:text-white rounded-md">Correlation Analysis</a></li>
+                </ul>
+            </div>
+            <!-- Company Column -->
+            <div class="md:col-span-1">
+                <h4 class="font-bold text-white mb-3 rounded-md text-xs">COMPANY</h4>
+                <ul class="space-y-1 text-xs">
+                    <li><a href="#" class="hover:text-white rounded-md">About Us</a></li>
+                    <li><a href="#" class="hover:text-white rounded-md">Our Story</a></li>
+                    <li><a href="#" class="hover:text-white rounded-md">Work With Us</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <br><br>
+        <!-- Bottom Section: Terms, Privacy, and Social Icons -->
+        <div class="flex flex-col md:flex-row justify-between text-xs">
+            <div class="mb-2 md:mb-0">
+                <a href="#" class="hover:text-white mr-3 rounded-md">Terms</a>
+                <a href="#" class="hover:text-white rounded-md">Privacy Policy</a>
+            </div>
+            <div class="flex space-x-3 md:justify-end" style="color:#6366f1">
+                <a href="#" class="hover:text-white"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="hover:text-white"><i class="fa-brands fa-medium"></i></a>
+                <a href="#" class="hover:text-white"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>
+    <!-- script for product showcase  -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get all tab buttons and tab panes
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabPanes = document.querySelectorAll('.tab-pane');
+        
+        // Add click event listener to each tab button
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons and panes
+                tabButtons.forEach(btn => {
+                    btn.classList.remove('active', 'bg-indigo-primary', 'text-white');
+                    btn.classList.add('bg-gray-700', 'text-dark-light-text');
+                });
+                
+                tabPanes.forEach(pane => {
+                    pane.classList.remove('active');
+                    pane.classList.add('hidden');
+                });
+                
+                // Add active class to clicked button
+                button.classList.add('active', 'bg-indigo-primary', 'text-white');
+                button.classList.remove('bg-gray-700', 'text-dark-light-text');
+                
+                // Show the corresponding tab pane
+                const tabId = button.getAttribute('data-tab');
+                const activePane = document.getElementById(`tab-${tabId}`);
+                activePane.classList.add('active');
+                activePane.classList.remove('hidden');
+            });
+        });
+    });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Desktop toggle functionality
+        const desktopToggle = document.getElementById('pricing-toggle-new');
+        const desktopPrices = document.querySelectorAll('.price-value');
+        
+        if (desktopToggle) {
+            desktopToggle.addEventListener('change', function() {
+                const isYearly = this.checked;
+                desktopPrices.forEach(priceElement => {
+                    const monthlyPrice = priceElement.getAttribute('data-monthly');
+                    const yearlyPrice = priceElement.getAttribute('data-yearly');
+                    priceElement.textContent = isYearly ? yearlyPrice : monthlyPrice;
+                });
+            });
+        }
+        
+        // Mobile toggle functionality
+        const mobileToggle = document.getElementById('pricing-toggle-mobile');
+        const mobilePrices = document.querySelectorAll('.price-value');
+        
+        if (mobileToggle) {
+            mobileToggle.addEventListener('change', function() {
+                const isYearly = this.checked;
+                mobilePrices.forEach(priceElement => {
+                    const monthlyPrice = priceElement.getAttribute('data-monthly');
+                    const yearlyPrice = priceElement.getAttribute('data-yearly');
+                    priceElement.textContent = isYearly ? yearlyPrice : monthlyPrice;
+                });
+            });
+        }
+    });
+</script>
+    
+    <!-- JavaScript for Mobile Menu Toggle and Tab Interaction -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Mobile Menu Toggle
+            const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuToggle.addEventListener('click', function () {
+                mobileMenu.classList.toggle('open');
+            });
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function () {
+                    mobileMenu.classList.remove('open');
+                });
+            });
+            // Tab Interaction for Product Showcase
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabPanes = document.querySelectorAll('.tab-pane');
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    // Remove 'active' class from all buttons and 'active' class from all panes, add 'hidden'
+                    tabButtons.forEach(btn => {
+                        btn.classList.remove('active', 'bg-indigo-primary', 'text-white');
+                        btn.classList.add('bg-gray-700', 'text-dark-light-text');
+                    });
+                    tabPanes.forEach(pane => {
+                        pane.classList.remove('active');
+                        pane.classList.add('hidden');
+                    });
+                    // Add 'active' class to the clicked button and its corresponding pane
+                    this.classList.add('active', 'bg-indigo-primary', 'text-white');
+                    this.classList.remove('bg-gray-700', 'text-dark-light-text');
+                    const targetTabId = this.getAttribute('data-tab');
+                    document.getElementById(`tab-${targetTabId}`).classList.remove('hidden');
+                    document.getElementById(`tab-${targetTabId}`).classList.add('active');
+                });
+            });
+        });
+    </script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const slideLeftButton = document.getElementById('slideLeft');
+            const slideRightButton = document.getElementById('slideRight');
+            const cardsContainerWrapper = document.getElementById('cardsContainerWrapper');
+            const featureCards = document.getElementById('featureCards');
+            let scrollAmount = 0;
+            // Function to calculate scroll amount dynamically
+            const calculateScrollAmount = () => {
+                if (featureCards.children.length > 0) {
+                    const firstCard = featureCards.children[0];
+                    const cardWidth = firstCard.offsetWidth; // Get the rendered width of one card
+                    const gapStyle = window.getComputedStyle(featureCards).gap;
+                    // Extract the numerical value from the gap style (e.g., "2rem" -> 32px)
+                    const gap = gapStyle ? parseFloat(gapStyle) * parseFloat(getComputedStyle(document.documentElement).fontSize) : 0;
+                    scrollAmount = cardWidth + gap;
+                } else {
+                    scrollAmount = 182; // Fallback if no cards are present (approx 150px width + 32px gap)
+                }
+            };
+            // Calculate initially and on window resize
+            calculateScrollAmount();
+            window.addEventListener('resize', calculateScrollAmount);
+            slideRightButton.addEventListener('click', () => {
+                cardsContainerWrapper.scrollBy({
+                    left: scrollAmount,
+                    behavior: 'smooth'
+                });
+            });
+            slideLeftButton.addEventListener('click', () => {
+                cardsContainerWrapper.scrollBy({
+                    left: -scrollAmount,
+                    behavior: 'smooth'
+                });
+            });
+            // Optional: Hide scrollbar for a cleaner look
+            const style = document.createElement('style');
+            style.textContent = `
+                .hide-scrollbar::-webkit-scrollbar {
+                    display: none;
+                }
+                .hide-scrollbar {
+                    -ms-overflow-style: none;  /* IE and Edge */
+                    scrollbar-width: none;  /* Firefox */
+                }
+            `;
+            document.head.append(style);
+        });
+    </script>
+</body>
+</html>
