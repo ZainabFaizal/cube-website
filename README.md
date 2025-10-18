@@ -9,11 +9,11 @@ Sign-up form (frontend)
 Password reset functionality (frontend)
 Interactive elements (tabs, toggles, forms)
 
-├── index.html              # Main landing page
-├── signin.html             # Sign-in page
-├── signup.html             # Sign-up page
-├── change-password.html    # Password reset page
-└── assets/                 # Images and icons
+index.html --> Main landing page
+signin.html --> Sign-in page
+signup.html --> Sign-up page
+change-password.html --> Password reset page
+assets --> Images and icons
 
 Technologies:
 HTML5
